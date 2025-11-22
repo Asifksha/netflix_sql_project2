@@ -40,7 +40,7 @@ SELECT * FROM netflix;
 
 -- Business Problems & Solutions
 
---1. Count the number of Movies vs TV Shows
+--1. **Count the number of Movies vs TV Shows**
 
 SELECT
   type,
@@ -48,7 +48,7 @@ SELECT
 FROM netflix
 GROUP BY type;
 
---2. Find the most common rating for movies and TV shows
+--2. **Find the most common rating for movies and TV shows**
 
 SELECT 
   type,
@@ -58,7 +58,7 @@ SELECT
 FROM netflix
 GROUP BY 1,2;
 
---3. List all movies released in a specific year (e.g., 2020)
+--3. **List all movies released in a specific year (e.g., 2020)**
 
 SELECT * FROM netflix
 WHERE
@@ -68,7 +68,7 @@ WHERE
 
 
 
---4. Find the top 5 countries with the most content on Netflix
+--4. **Find the top 5 countries with the most content on Netflix**
 SELECT
   UNNEST(STRING_TO_ARRAY(country,',')) as new_country,
   COUNT(show_id) as total_content
@@ -77,8 +77,8 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 5
 
---5. Identify the longest movie
-
+--5. **Identify the longest movie
+**
 SELECT * FROM netflix
 WHERE 
   type = 'Movie'
